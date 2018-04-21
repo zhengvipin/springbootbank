@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jwt.mapper.UserMapper">
+    <resultMap id="result-user" type="User">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+
+        <!-- 用户关联的角色 -->
+        <collection property="authorities" ofType="com.jwt.security.domain.Authority">
+            <id property="id" column="auth_id"/>
+            <result property="name" column="name"/>
+        </collection>
+    </resultMap>
+
+    <select id="findByUsername" resultMap="result-user">
+        SELECT u.id,u.username,u.password,a.id auth_id,a.name
+        FROM USER u,AUTHORITY a,USER_AUTHORITY ua
+        WHERE u.username=#{username}
+        AND u.id=ua.user_id
+        AND a.id=ua.authority_id
+    </select>
+</mapper>
