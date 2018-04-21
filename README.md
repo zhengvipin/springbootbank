@@ -1,13 +1,15 @@
 Spring Security:
 ===
-    *Spring Security使用一个`Authentication`对象来描述当前用户的相关信息。
-    *`SecurityContextHolder`中持有的是当前用户的`SecurityContext`，
-    *而`SecurityContext`持有的是代表当前用户相关信息的`Authentication`的引用。
-    *`UsernamePasswordAuthenticationToken`继承`AbstractAuthenticationToken`实现`Authentication`
-    *所以当在页面中输入用户名和密码之后首先会进入到`UsernamePasswordAuthenticationToken`验证(`Authentication`)
+introduction:
+---
+    Spring Security使用一个`Authentication`对象来描述当前用户的相关信息。<br/>
+    `SecurityContextHolder`中持有的是当前用户的`SecurityContext`，<br/>
+    而`SecurityContext`持有的是代表当前用户相关信息的`Authentication`的引用。<br/>
+    `UsernamePasswordAuthenticationToken`继承`AbstractAuthenticationToken`实现`Authentication`<br/>
+    所以当在页面中输入用户名和密码之后首先会进入到`UsernamePasswordAuthenticationToken`验证(`Authentication`)<br/>
 
-相关资料：
-===
+adout info：
+---
 [Spring Boot中使用使用Spring Security和JWT](https://www.cnblogs.com/hackyo/p/8004928.html)<br/>
 
 [spring security认证过程](https://www.cnblogs.com/shiyu404/p/6530894.html)<br/>
